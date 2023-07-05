@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Data Driven Login Test Suite">
+    <test verbose="2" preserve-order="true" name="saucedemo_login_automation">
+        <classes>
+            <class name="tests.T001_LoginTests">
+                <methods>
+                    <include name="testLoginCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

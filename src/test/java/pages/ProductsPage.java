@@ -6,26 +6,36 @@ import support.Utilities;
 
 public class ProductsPage extends Base {
 
-    private By productAddToCartButton = By.xpath("//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']");
+    private By backPackAddToCartButton = By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']");
+    private By jacketAddToCartButton = By.xpath("//button[@id='add-to-cart-sauce-labs-fleece-jacket']");
+    private By tShirtAddToCartButton = By.xpath("//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']");
+    private By removeJacketButton = By.xpath("//button[@id='remove-sauce-labs-fleece-jacket']");
     private By cartButton = By.xpath("//a[@class='shopping_cart_link']");
     private By menuButton = By.xpath("//button[@id='react-burger-menu-btn']");
     private By logoutButton = By.xpath("//a[@id='logout_sidebar_link']");
 
+    private By PageHeader = By.xpath("//span[contains(text(),'Products')]");
+
     Utilities util = new Utilities();
 
-    public void addProductToCart(){
+    public String getPageHeader(){
 
-        if (util.getWebElement(productAddToCartButton).isDisplayed()){
+        return util.getWebElement(PageHeader).getText();
+    }
 
-            util.getWebElement(productAddToCartButton).click();
-        }
-        else {
+    public void addProductsToCart(){
 
-            util.scrollToElement(productAddToCartButton);
-            util.getWebElement(productAddToCartButton).click();
-            util.scrollPageTo("top");
-        }
+        util.getWebElement(backPackAddToCartButton).click();
+        util.getWebElement(jacketAddToCartButton).click();
 
+        util.scrollPageTo("bottom");
+        util.getWebElement(tShirtAddToCartButton).click();
+        util.scrollPageTo("top");
+    }
+
+    public void removeProduct(){
+
+        util.getWebElement(removeJacketButton).click();
     }
 
     public CartPage goToCartPage(){

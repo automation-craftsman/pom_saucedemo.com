@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Master Test Suite">
+    <test verbose="2" preserve-order="true" name="saucedemo_automation">
+        <classes>
+            <class name="tests.T001_LoginTests">
+                <methods>
+                    <include name="testValidLoginCredentials"/>
+                </methods>
+            </class>
+            <class name="tests.T002_PurchaseTests">
+                <methods>
+                    <include name="testProductPurchase"/>
+                </methods>
+            </class>
+            <class name="tests.T003_LogoutTests">
+                <methods>
+                    <include name="logoutUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

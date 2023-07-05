@@ -11,9 +11,16 @@ public class PurchaseInfoPage extends Base {
     private By postalCodeField = By.xpath("//input[@id='postal-code']");
     private By continueButton = By.xpath("//input[@id='continue']");
 
+    private By pageHeader = By.xpath("//span[contains(text(),'Checkout: Your Information')]");
+
     Utilities util = new Utilities();
 
-    public OverviewPage fillPurchaseInfoAndProceed(){
+    public String getPageHeader(){
+
+        return util.getWebElement(pageHeader).getText();
+    }
+
+    public PurchaseOverviewPage fillPurchaseInfoAndProceed(){
 
         util.getWebElement(firstNameField).sendKeys(prop.getProperty("firstName"));
         util.getWebElement(lastNameField).sendKeys(prop.getProperty("lastName"));
@@ -21,7 +28,7 @@ public class PurchaseInfoPage extends Base {
 
         util.getWebElement(continueButton).click();
 
-        return new OverviewPage();
+        return new PurchaseOverviewPage();
     }
 
 

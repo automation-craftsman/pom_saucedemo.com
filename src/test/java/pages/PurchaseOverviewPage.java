@@ -7,7 +7,7 @@ import support.Utilities;
 
 import java.util.List;
 
-public class OverviewPage extends Base {
+public class PurchaseOverviewPage extends Base {
 
 //    Yet to work on the purchase details. (getCartItems & getPurchaseDetails)
 
@@ -18,8 +18,15 @@ public class OverviewPage extends Base {
 
     private By finishButton = By.xpath("//button[@id='finish']");
 
+    private By PageHeader = By.xpath("//span[contains(text(),'Checkout: Overview')]");
+
 
     Utilities util = new Utilities();
+
+    public String getPageHeader(){
+
+        return util.getWebElement(PageHeader).getText();
+    }
 
     private void getCartItems(){
 

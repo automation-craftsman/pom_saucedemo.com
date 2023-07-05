@@ -10,7 +10,14 @@ public class LoginPage extends Base {
     private By passwordFiled = By.xpath("//input[@id='password']");
     private By loginButton = By.xpath("//input[@id='login-button']");
 
+    private By pageHeader = By.xpath("//div[@class='login_logo']");
+
     Utilities util = new Utilities();
+
+    public String getPageHeader(){
+
+        return util.getWebElement(pageHeader).getText();
+    }
 
     public ProductsPage loginUser(String userName, String userPassword){
 
